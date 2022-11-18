@@ -63,16 +63,12 @@ function getTargetType(value: Target) {
 export type UnwrapNestedRefs<T> = T extends Ref ? T : UnwrapRefSimple<T>
 
 /**
- * Creates a reactive copy of the original object.
+ * 创建原始对象的响应式副本。
  *
- * The reactive conversion is "deep"—it affects all nested properties. In the
- * ES2015 Proxy based implementation, the returned proxy is **not** equal to the
- * original object. It is recommended to work exclusively with the reactive
- * proxy and avoid relying on the original object.
- *
- * A reactive object also automatically unwraps refs contained in it, so you
- * don't need to use `.value` when accessing and mutating their value:
- *
+ * 响应式转换是“深度”的——它影响所有嵌套的属性。 在基于 ES2015 Proxy 的实现中，返回的代理不等于原始对象。 
+ * 建议专门使用响应式代理并避免依赖原始对象。
+ * 
+ * 响应式对象还会自动解包其中包含的引用，因此在访问和改变它们的值时不需要使用 .value ：
  * ```js
  * const count = ref(0)
  * const obj = reactive({
